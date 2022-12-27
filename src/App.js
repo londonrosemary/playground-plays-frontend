@@ -1,11 +1,16 @@
 import React from 'react';
+
 import './App.css';
 
-import Plays from './Components/Plays'
+import NavBar from './Components/NavBar';
+import Plays from './Components/Plays/Plays'
 
 function App() {
   return (
-    <Plays/>
+        <div>
+          <NavBar/>
+          <Plays/>
+      </div>  
   );
 }
 
