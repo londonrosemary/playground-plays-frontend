@@ -1,8 +1,14 @@
 import React from "react";
+import {useNavigate} from 'react-router-dom';
 
-const PlayCard = ({play}) => {
+import PlayDetails from "./PlayDetails";
+
+const PlayCard = ({play, setPlay}) => {
+    let navigate = useNavigate();
+
     const viewDetails =() =>{
-        console.log("viewDetails button clicked")
+        setPlay(play);
+        navigate(`/plays/${play.id}`)
     }
 
     return(
@@ -10,7 +16,7 @@ const PlayCard = ({play}) => {
             <h3>{play.name}</h3>
             <p>Playwright: {play.author}</p>
             <p>Genre: {play.genre}</p>
-            <button onClick={viewDetails}>view details</button>
+            <button onClick={viewDetails}>View Details</button>
         </div>
     )
 }

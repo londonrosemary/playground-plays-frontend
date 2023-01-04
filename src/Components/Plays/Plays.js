@@ -3,9 +3,10 @@ import PlayCard from "./PlayCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const Plays = () => {
-    const [plays, setPlays] = useState([])
+const Plays = ({setPlay}) => {
     const baseURL = "http://localhost:3001/plays"
+
+    const [plays, setPlays] = useState([])
 
     useEffect(() => {
         axios.get(baseURL)
@@ -15,7 +16,7 @@ const Plays = () => {
     },[])
     
     const playArr = plays.map((play) => {
-        return(<PlayCard key={play.id} play={play} /> )
+        return(<PlayCard key={play.id} play={play} setPlay={setPlay}/> )
     })
 
     return(
