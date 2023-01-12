@@ -1,9 +1,10 @@
-import react from 'react';
+import React from 'react';
 
 const PlayDetails = ({play}) => {
     return(
         <div>
-        <h3>{play.name}</h3>
+        <h2>{play.name}</h2>
+        <h4>Written by: {play.author}</h4>
         <p>{play.description}</p>
         </div>
     )

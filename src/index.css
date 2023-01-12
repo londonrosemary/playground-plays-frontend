@@ -19,3 +19,11 @@ code {
   width: 17em;
   flex: auto
 }
+
+.MonologueCard-container {
+  border: 1px solid black;
+  padding: 10px;
+  margin: 10px;
+  width: 17em;
+  flex: auto
+}

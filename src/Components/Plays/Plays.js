@@ -20,7 +20,12 @@ const Plays = ({setPlay}) => {
     })
 
     return(
-        <ul>{playArr}</ul>
+        <div>
+            <h3>Our Play Library</h3>
+            <p>At the Playground, we want to ensure you have access to quality plays to pull material from. Check out some plays below and request a copy to be sent a pdf of the script.</p>
+            <ul>{playArr}</ul>
+        </div>
+        
     )
 }
 

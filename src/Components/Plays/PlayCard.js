@@ -17,6 +17,7 @@ const PlayCard = ({play, setPlay}) => {
             <p>Playwright: {play.author}</p>
             <p>Genre: {play.genre}</p>
             <button onClick={viewDetails}>View Details</button>
+            <button>Request a copy</button>
         </div>
     )
 }
