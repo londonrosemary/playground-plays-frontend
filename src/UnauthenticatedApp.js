@@ -4,19 +4,20 @@ import Register from "./Components/Register/Register.js";
 import Login from "./Components/Login/Login.js"
 
 function UnauthenticatedApp(){
-    const [isSignedUp, setIsSignedUp] = useState(true);
+    const [isRegistered, setIsRegistered] = useState(true);
 
     function switchMode(){
-        setIsSignedUp((prevIsSignedUp) => !prevIsSignedUp);
+        setIsRegistered((prevIsRegistered) => !prevIsRegistered);
     };
     
     return(
         <div>
-            <h1 className='header'>Login</h1>
-            {isSignedUp ? (
-                <Register isSignedUp={isSignedUp} switchMode={switchMode} />
+            <h1 className='header'>Welcome to The Playground.</h1>
+            <h2>Please Login or Sign Up</h2>
+            {isRegistered ? (
+                <Register isRegistered={isRegistered} switchMode={switchMode} />
             ) : (
-                <Login isSignedUp={isSignedUp} switchMode={switchMode} />
+                <Login isRegistered={isRegistered} switchMode={switchMode} />
             )}
         </div>
     )
