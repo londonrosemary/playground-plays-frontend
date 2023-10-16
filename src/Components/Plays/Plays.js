@@ -4,14 +4,19 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Plays = ({setPlay}) => {
-    const baseURL = "http://localhost:3001/plays"
+    const baseURL = "http://localhost:1337/api/plays"
+    const headers = { 'Authorization': 'Bearer my-token' }; // auth header with bearer token
 
     const [plays, setPlays] = useState([])
 
     useEffect(() => {
-        axios.get(baseURL)
+        axios.get(
+            baseURL,
+            {headers}
+            )
         .then((response)=>{
-            setPlays(response.data)
+            // setPlays(response.data)
+            console.log(response.data)
         })
     },[])
     
