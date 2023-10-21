@@ -23,7 +23,7 @@ const AuthenticatedApp = () => {
       {/* Need the Routes indicator inside main App to allow all routes to work */}
       <Routes>
         {/* Route requires a path and an element. Path is for the URL. Element is for the component being rendered */}
-          <Route exact path="/" element={<Calendar/>} />
+          <Route exact path="/home" element={<Calendar/>} />
           <Route exact path='/plays' element={<Plays setPlay={setPlay} />}/>
           <Route exact path={`/plays/${play.id}`} element={<PlayDetails play={play}/>}/>
           <Route exact path={'/monologues'} element={<Monologues setMonologue={setMonologue}/>} />

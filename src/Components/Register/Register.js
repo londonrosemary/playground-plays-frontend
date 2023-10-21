@@ -1,5 +1,8 @@
-import React, {useState} from "react";
-import {useNavigate} from 'react-router-dom'
+import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'
+import { useAuthContext } from "../../Context/AuthContext";
+import { API } from "../../constant";
+import { setToken } from "../../helpers";
 
 function Register({isRegistered, switchMode}){
     const [username, setUsername] = useState("")
@@ -8,6 +11,9 @@ function Register({isRegistered, switchMode}){
     const [password_confirmation, setPassword_Confirmation] = useState("")
     const [passwordShown, setPasswordShown] = useState(false)
     const [confPasswordShown, setConfPasswordShown] = useState(false)
+    const { setUser } = useAuthContext();
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError] = useState("");
 
     let navigate = useNavigate();
 
@@ -19,34 +25,66 @@ function Register({isRegistered, switchMode}){
         setConfPasswordShown(confPasswordShown ? false : true);
     };
 
-    function handleSignupSubmit(e){
-        e.preventDefault()
-        // console.log("Creating account...")
-        if (password === password_confirmation){
-            fetch("http://localhost:1337/api/users", {
-                method: "POST",
-                headers: { 'Content-Type': "application/json" },
-                body: JSON.stringify({username, email, password, password_confirmation})
-            })
-                .then(resp => resp.json())
-                .then(user => {
-                // console.log('Success:', user)
-                localStorage.setItem("user", user.id);
-                localStorage.setItem("bearerToken", )
-                navigate("home")
-                window.location.reload();
-                })
-                .catch(error => console.log('Error:', error))
+    // function handleSignupSubmit(e){
+    //     e.preventDefault()
+    //     // console.log("Creating account...")
+    //     if (password === password_confirmation){
+    //         fetch("http://localhost:1337/api/users", {
+    //             method: "POST",
+    //             headers: { 'Content-Type': "application/json" },
+    //             body: JSON.stringify({username, email, password, password_confirmation})
+    //         })
+    //             .then(resp => resp.json())
+    //             .then(user => {
+    //             // console.log('Success:', user)
+    //             localStorage.setItem("user", user.id);
+    //             localStorage.setItem("bearerToken", )
+    //             navigate("home")
+    //             window.location.reload();
+    //             })
+    //             .catch(error => console.log('Error:', error))
+    //     }
+    //     else {
+    //         alert('passwords must match')
+    //     }
+    // 
+    // }
+    const onFinish = async (values) => {
+        setIsLoading(true);
+        try {
+          const response = await fetch(`${API}/auth/local/register`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+          });
+
+          const data = await response.json();
+          if (data?.error) {
+            throw data?.error;
+          } else {
+            // set the token
+            setToken(data.jwt);
+    
+            // set the user
+            setUser(data.user);
+    
+            console.success(`Welcome to Social Cards ${data.user.username}!`);
+    
+            navigate("/profile", { replace: true });
+          }
+        } catch (error) {
+          console.error(error);
+          setError(error?.message ?? "Something went wrong!");
+        } finally {
+          setIsLoading(false);
         }
-        else {
-            alert('passwords must match')
-        }
-        
-    }
+      };
 
     return(
         <div className='formContainer'>
-            <form className='LogoutForm' onSubmit={e => handleSignupSubmit(e)}>
+            <form className='LogoutForm' onSubmit={e => onFinish(e)}>
                 <div className='nonPwInput'>
                     <input 
                         placeholder="Username"
