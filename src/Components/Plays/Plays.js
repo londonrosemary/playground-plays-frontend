@@ -2,9 +2,10 @@ import React from "react";
 import PlayCard from "./PlayCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { API, AUTH_TOKEN, BEARER } from "../../constant";
 
 const Plays = ({setPlay}) => {
-    const baseURL = "http://localhost:1337/api/plays"
+    const baseURL = API + "/plays"
     const headers = { 'Authorization': 'Bearer my-token' }; // auth header with bearer token
 
     const [plays, setPlays] = useState([])

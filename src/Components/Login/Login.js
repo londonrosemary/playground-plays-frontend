@@ -25,7 +25,7 @@ function Login({isRegistered, switchMode}){
           console.log('User token', response.data.jwt);
           localStorage.setItem("user", response.data.user)
           localStorage.setItem("authToken", response.data.jwt)
-          navigate("/")
+          navigate("/home")
           window.location.reload()
         })
         .catch(error => {

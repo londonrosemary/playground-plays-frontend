@@ -5,6 +5,11 @@ import { API } from "../../constant";
 import { setToken } from "../../helpers";
 
 function Register({isRegistered, switchMode}){
+    const [userBody, setUserBody] = useState({
+      username: "",
+      email: "",
+      password: ""
+    })
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -49,7 +54,7 @@ function Register({isRegistered, switchMode}){
     //     }
     // 
     // }
-    const onFinish = async (e, values) => {
+    const onFinish = async (e) => {
       e.preventDefault();
         setIsLoading(true);
         try {
@@ -58,7 +63,7 @@ function Register({isRegistered, switchMode}){
             headers: {
               "Content-Type": "application/json",
             },
-            body: JSON.stringify(values),
+            body: JSON.stringify({username, email, password}),
           });
 
           const data = await response.json();
@@ -71,9 +76,9 @@ function Register({isRegistered, switchMode}){
             // set the user
             setUser(data.user);
     
-            console.success(`Welcome to the Playground ${data.user.username}!`);
+            console.log(`Welcome to the Playground ${data.user.username}!`);
     
-            navigate("/", { replace: true });
+            navigate("/home", { replace: true });
           }
         } catch (error) {
           console.error(error);
