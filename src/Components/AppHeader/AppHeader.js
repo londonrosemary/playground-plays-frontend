@@ -8,15 +8,13 @@ const AppHeader = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    removeToken();
-    navigate("/signin", { replace: true });
+    localStorage.clear()
+    navigate("/", { replace: true });
+    window.location.reload()
   };
 
   return (
     <div className="header_space">
-      <button className="header_space_brand" href="/home" type="link">
-
-      </button>
       <div className="auth_buttons">
         {user ? (
           <>
@@ -33,16 +31,16 @@ const AppHeader = () => {
           </>
         ) : (
           <>
-            <button className="auth_button_login" href="/login" type="link">
+            <a className="auth_button_login" href="/login" type="link">
               Login
-            </button>
-            <button
+            </a>
+            <a
               className="auth_button_signUp"
               href="/register"
               type="primary"
             >
               Register
-            </button>
+            </a>
           </>
         )}
       </div>

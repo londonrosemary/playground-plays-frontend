@@ -9,12 +9,13 @@ import Calendar from "./Components/Calendar/Calendar";
 const AppRoutes = () => {
     return (
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route
+       <Route
           path="/"
           element={getToken() ? <Calendar/> : <Navigate to="/login" />}
         />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        
       </Routes>
     );
   };

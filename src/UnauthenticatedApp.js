@@ -4,7 +4,7 @@ import Register from "./Components/Register/Register.js";
 import Login from "./Components/Login/Login.js"
 
 function UnauthenticatedApp(){
-    const [isRegistered, setIsRegistered] = useState(true);
+    const [isRegistered, setIsRegistered] = useState(false);
 
     function switchMode(){
         setIsRegistered((prevIsRegistered) => !prevIsRegistered);

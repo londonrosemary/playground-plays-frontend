@@ -49,7 +49,8 @@ function Register({isRegistered, switchMode}){
     //     }
     // 
     // }
-    const onFinish = async (values) => {
+    const onFinish = async (e, values) => {
+      e.preventDefault();
         setIsLoading(true);
         try {
           const response = await fetch(`${API}/auth/local/register`, {
@@ -70,9 +71,9 @@ function Register({isRegistered, switchMode}){
             // set the user
             setUser(data.user);
     
-            console.success(`Welcome to Social Cards ${data.user.username}!`);
+            console.success(`Welcome to the Playground ${data.user.username}!`);
     
-            navigate("/profile", { replace: true });
+            navigate("/", { replace: true });
           }
         } catch (error) {
           console.error(error);
@@ -127,9 +128,9 @@ function Register({isRegistered, switchMode}){
             </form>
             <p>
                 {isRegistered
-                    ? "have an account? "
-                    : "need an account? "}
-                <em onClick={switchMode}>{isRegistered ? "sign in" : "sign up"}</em>
+                    ? "Have an account? "
+                    : "Need an account? "}
+                <em onClick={switchMode}>{isRegistered ? "Sign In" : "Register"}</em>
             </p>
         </div>
     )
