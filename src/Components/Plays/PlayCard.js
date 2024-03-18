@@ -1,5 +1,5 @@
 import React from "react";
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, useState} from 'react-router-dom';
 
 import PlayDetails from "./PlayDetails";
 
@@ -8,7 +8,7 @@ const PlayCard = ({play, setCurrentPlay}) => {
 
     const viewDetails =() =>{
         setCurrentPlay(play);
-        navigate(`/plays/${play.attributes.id}`)
+        navigate(`/plays/${play.id}`)
     }
 
     return(

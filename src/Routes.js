@@ -6,6 +6,7 @@ import Register from "./Components/Register/Register";
 import AuthenticatedApp from "./AuthenticatedApp"
 import Calendar from "./Components/Calendar/Calendar";
 import Plays from "./Components/Plays/Plays";
+import PlayDetails from "./Components/Plays/PlayDetails";
 
 const AppRoutes = () => {
     return (
@@ -15,9 +16,13 @@ const AppRoutes = () => {
           element={getToken() ? <Navigate to="/home" /> : <Navigate to="/login" />}
         />
         <Route path="/home" element={<Calendar/>} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/login"
+          element={getToken() ? <Navigate to="/home" /> : <Navigate to="/login" />}
+        />
         <Route path="/register" element={<Register />} />
         <Route path="/plays" element={<Plays />} />  
+        {/* <Route path="/plays:id" element={<PlayDetails />} /> */}
       </Routes>
     );
   };

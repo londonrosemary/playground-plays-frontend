@@ -10,7 +10,7 @@ const Plays = ({setPlay}) => {
     const headers = { 'Authorization': `Bearer ${token}` }; // auth header with bearer token
 
     const [allPlays, setPlays] = useState([])
-    const [currentPlay, setcurrentPlay] = useState([])
+    const [currentPlay, setCurrentPlay] = useState([])
     
     useEffect(() => {
         axios.get(
@@ -25,7 +25,7 @@ const Plays = ({setPlay}) => {
     },[])
     
     const playArr = allPlays.map((play) => {
-        return(<PlayCard key={play.attributes.id} play={play} setcurrentPlay={setcurrentPlay}/> )
+        return(<PlayCard key={play.id} play={play} setCurrentPlay={setCurrentPlay}/> )
     })
 
     return(
