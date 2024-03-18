@@ -19,15 +19,28 @@ const AppHeader = () => {
         {user ? (
           <>
             <div>
-                Header
+                Authenticated Header
             </div> 
-            <button
+            <a
               className="auth_button_signUp"
               type="primary"
               onClick={handleLogout}
+              href="/"
             >
               Logout
-            </button>
+            </a>
+            <a 
+            className="auth_nav_link"
+            href="/plays"
+            >
+              Plays
+            </a>
+            <a 
+            className="auth_nav_link"
+            href="/home"
+            >
+              Home
+            </a>
           </>
         ) : (
           <>

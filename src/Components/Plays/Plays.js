@@ -2,27 +2,30 @@ import React from "react";
 import PlayCard from "./PlayCard";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { API, AUTH_TOKEN, BEARER } from "../../constant";
+import { API} from "../../constant";
 
 const Plays = ({setPlay}) => {
     const baseURL = API + "/plays"
-    const headers = { 'Authorization': 'Bearer my-token' }; // auth header with bearer token
+    const token = localStorage.getItem("authToken")
+    const headers = { 'Authorization': `Bearer ${token}` }; // auth header with bearer token
 
-    const [plays, setPlays] = useState([])
-
+    const [allPlays, setPlays] = useState([])
+    const [currentPlay, setcurrentPlay] = useState([])
+    
     useEffect(() => {
         axios.get(
             baseURL,
             {headers}
             )
         .then((response)=>{
-            // setPlays(response.data)
-            console.log(response.data)
+            console.log(response.data.data)
+            setPlays(response.data.data)
+            console.log(allPlays)
         })
     },[])
     
-    const playArr = plays.map((play) => {
-        return(<PlayCard key={play.id} play={play} setPlay={setPlay}/> )
+    const playArr = allPlays.map((play) => {
+        return(<PlayCard key={play.attributes.id} play={play} setcurrentPlay={setcurrentPlay}/> )
     })
 
     return(

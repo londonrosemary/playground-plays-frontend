@@ -29,7 +29,7 @@ function Login({isRegistered, switchMode}){
           window.location.reload()
         })
         .catch(error => {
-          console.log('An error occurred:', error.response);
+          alert('An error occurred, please try again', error.response);
         });
     }
 

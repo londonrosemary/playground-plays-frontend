@@ -3,19 +3,19 @@ import {useNavigate} from 'react-router-dom';
 
 import PlayDetails from "./PlayDetails";
 
-const PlayCard = ({play, setPlay}) => {
+const PlayCard = ({play, setCurrentPlay}) => {
     let navigate = useNavigate();
 
     const viewDetails =() =>{
-        setPlay(play);
-        navigate(`/plays/${play.id}`)
+        setCurrentPlay(play);
+        navigate(`/plays/${play.attributes.id}`)
     }
 
     return(
         <div className="PlayCard-container">
-            <h3>{play.name}</h3>
-            <p>Playwright: {play.author}</p>
-            <p>Genre: {play.genre}</p>
+            <h3>{play.attributes.name}</h3>
+            <p>Playwright: {play.attributes.author}</p>
+            <p>Genre: {play.attributes.genre}</p>
             <button onClick={viewDetails}>View Details</button>
             <button>Request a copy</button>
         </div>
