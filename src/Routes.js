@@ -15,14 +15,15 @@ const AppRoutes = () => {
           path="/"
           element={getToken() ? <Navigate to="/home" /> : <Navigate to="/login" />}
         />
-        <Route path="/home" element={<Calendar/>} />
+        <Route path="/home" 
+        element={getToken() ?<Calendar/> : <Navigate to="/login" />} />
         <Route
           path="/login"
-          element={getToken() ? <Navigate to="/home" /> : <Navigate to="/login" />}
+          element={getToken() ? <Navigate to="/home" /> : <Login />}
         />
         <Route path="/register" element={<Register />} />
         <Route path="/plays" element={<Plays />} />  
-        {/* <Route path="/plays:id" element={<PlayDetails />} /> */}
+        <Route path="/plays:slug" element={<PlayDetails />} />
       </Routes>
     );
   };

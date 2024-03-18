@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom';
 // import { useState } from 'react';
 
 const PlayDetails = (play) => {
-    const params = useParams()
+    const {params} = useParams()
     console.log(params)
     // console.log(play)
 
