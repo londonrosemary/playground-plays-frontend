@@ -7,7 +7,7 @@ const PlayCard = ({play, setCurrentPlay}) => {
     let navigate = useNavigate();
 
     const viewDetails =() =>{
-        setCurrentPlay(play);
+        // setCurrentPlay(play);
         navigate(`/plays/${play.id}`)
     }
 

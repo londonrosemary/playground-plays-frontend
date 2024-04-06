@@ -23,7 +23,7 @@ const AppRoutes = () => {
         />
         <Route path="/register" element={<Register />} />
         <Route path="/plays" element={<Plays />} />  
-        <Route path="/plays:slug" element={<PlayDetails />} />
+        <Route path="/plays/:playId" element={<PlayDetails />} />
       </Routes>
     );
   };

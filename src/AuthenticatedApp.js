@@ -11,6 +11,7 @@ import Calendar from './Components/Calendar/Calendar';
 import {
     Routes,
     Route,
+    useParams
   } from "react-router-dom";
 
 const AuthenticatedApp = () => {
@@ -25,7 +26,7 @@ const AuthenticatedApp = () => {
         {/* Route requires a path and an element. Path is for the URL. Element is for the component being rendered */}
           <Route exact path="/home" element={<Calendar/>} />
           <Route exact path='/plays' element={<Plays setPlay={setPlay} />}/>
-          <Route exact path={`/plays/${play.id}`} element={<PlayDetails play={play}/>}/>
+          <Route path="/plays/:playId" element={<PlayDetails play={play}/>}/>
           <Route exact path={'/monologues'} element={<Monologues setMonologue={setMonologue}/>} />
           <Route exact path={`/monologues/${monologue.id}`} element={<MonologuesDetails monologue={monologue}/>} />
       </Routes>

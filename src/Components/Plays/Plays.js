@@ -20,7 +20,7 @@ const Plays = ({setPlay}) => {
         .then((response)=>{
             console.log(response.data.data)
             setPlays(response.data.data)
-            console.log(allPlays)
+            // console.log(allPlays)
         })
     },[])
     
