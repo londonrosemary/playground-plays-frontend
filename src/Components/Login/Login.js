@@ -61,12 +61,6 @@ function Login({isRegistered, switchMode}){
                     <button id="signInButton"type="submit">Sign In</button>
                 </div>
             </form>
-            <p>
-                {isRegistered
-                    ? "Have an account? "
-                    : "Need an account? "}
-                <em onClick={switchMode}>{isRegistered ? "Sign In" : "Register"}</em>
-            </p>
         </div>
     )
 }

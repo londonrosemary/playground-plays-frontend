@@ -12,7 +12,7 @@ const MonologueCard = ({monologue, setMonologue}) => {
     return(
         <div className="MonologueCard-container">
             <h3>{monologue.name}</h3>
-            {/* <p>Playwright: {monologue.author}</p> */}
+            <p>Playwright: {monologue.author}</p>
             <p>Genre: {monologue.genre}</p>
             <p>Gender: {monologue.gender}</p>
             <button onClick={viewDetails}>View Details</button>

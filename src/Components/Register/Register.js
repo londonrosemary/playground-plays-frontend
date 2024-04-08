@@ -131,12 +131,6 @@ function Register({isRegistered, switchMode}){
                     <button type="submit">Sign Up</button>
                 </div>
             </form>
-            <p>
-                {isRegistered
-                    ? "Have an account? "
-                    : "Need an account? "}
-                <em onClick={switchMode}>{isRegistered ? "Sign In" : "Register"}</em>
-            </p>
         </div>
     )
 }
