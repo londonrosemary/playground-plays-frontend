@@ -1,14 +1,14 @@
 import React from "react";
-import {useNavigate, useState} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
-import PlayDetails from "./PlayDetails";
 
 const PlayCard = ({play, setCurrentPlay}) => {
     let navigate = useNavigate();
 
     const viewDetails =() =>{
-        // setCurrentPlay(play);
+        setCurrentPlay(play);
         navigate(`/plays/${play.id}`)
+        // console.log({play})
     }
 
     return(

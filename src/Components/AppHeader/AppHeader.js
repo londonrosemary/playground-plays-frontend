@@ -18,9 +18,6 @@ const AppHeader = () => {
       <div className="auth_buttons">
         {user ? (
           <>
-            <div>
-                Authenticated Header
-            </div> 
             <a
               className="auth_button_signUp"
               type="primary"
@@ -34,6 +31,12 @@ const AppHeader = () => {
             href="/plays"
             >
               Plays
+            </a>
+            <a 
+            className="auth_nav_link"
+            href="/monologues"
+            >
+              Monologues
             </a>
             <a 
             className="auth_nav_link"

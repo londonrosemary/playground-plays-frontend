@@ -4,19 +4,27 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Monologues = ({setMonologue}) => {
-    const baseURL = "http://localhost:3001/monologues"
+    const baseURL = "http://localhost:1337/api/monologues"
+    const token = localStorage.getItem("authToken")
+    const headers = { 'Authorization': `Bearer ${token}` }; // auth header with bearer token
 
     const [monologues, setMonologues] = useState([])
+    const [currentMonologue, setCurrentMonologue] = useState([])
 
     useEffect(() => {
-        axios.get(baseURL)
+        axios.get(
+            baseURL,
+            {headers}
+            )
         .then((response)=>{
-            setMonologues(response.data)
+            // console.log(response.data.data)
+            setMonologues(response.data.data)
+            // console.log(monologues)
         })
     },[])
     
     const monologueArr = monologues.map((monologue) => {
-        return(<MonologueCard key={monologue.id} monologue={monologue} setMonologue={setMonologue}/> )
+        return(<MonologueCard key={monologue.id} monologue={monologue} setCurrentMonologue={setCurrentMonologue}/> )
     })
 
     return(

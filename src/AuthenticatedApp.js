@@ -5,7 +5,7 @@ import NavBar from './Components/NavBar';
 import Plays from './Components/Plays/Plays'
 import PlayDetails from './Components/Plays/PlayDetails';
 import Monologues from './Components/Monologues/Monologues';
-import MonologuesDetails from './Components/Monologues/MonologuesDetails';
+import MonologuesDetails from './Components/Monologues/MonologueDetails';
 import Calendar from './Components/Calendar/Calendar';
 
 import {
@@ -28,7 +28,7 @@ const AuthenticatedApp = () => {
           <Route exact path='/plays' element={<Plays setPlay={setPlay} />}/>
           <Route path="/plays/:playId" element={<PlayDetails play={play}/>}/>
           <Route exact path={'/monologues'} element={<Monologues setMonologue={setMonologue}/>} />
-          <Route exact path={`/monologues/${monologue.id}`} element={<MonologuesDetails monologue={monologue}/>} />
+          <Route exact path={'/monologues/:monologueId'} element={<MonologuesDetails monologue={monologue}/>} />
       </Routes>
         </div>
     )

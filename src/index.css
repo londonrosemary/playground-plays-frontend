@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -20,10 +22,45 @@ code {
   flex: auto
 }
 
+
 .MonologueCard-container {
   border: 1px solid black;
   padding: 10px;
   margin: 10px;
   width: 17em;
   flex: auto
+}
+
+.header_space{
+  margin: .5rem;
+}
+.auth_buttons{
+  margin: .5rem;
+}
+.auth_nav_link {
+  margin: .5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.auth_button_login{
+  margin: .5rem;
+  font-family: Helvetica, sans-serif;
+  font-weight: light;
+}
+
+.home_calendar_container{
+  margin: 5rem;
+  font-family: "Oswald", sans-serif;
+  font-weight: bold;
+}
+
+.auth_button_signUp{
+  font-family: "Helvetica", sans-serif;
+  font-weight: lighter;
+}
+
+.monologue_details{
+  text-align: center;
+  width: 50rem;
+  justify-content: center;
 }

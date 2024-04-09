@@ -3,10 +3,11 @@ import { Routes, Route, Navigate } from "react-router";
 import { getToken } from "./helpers";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
-import AuthenticatedApp from "./AuthenticatedApp"
 import Calendar from "./Components/Calendar/Calendar";
 import Plays from "./Components/Plays/Plays";
 import PlayDetails from "./Components/Plays/PlayDetails";
+import Monologues from "./Components/Monologues/Monologues";
+import MonologueDetails from "./Components/Monologues/MonologueDetails"
 
 const AppRoutes = () => {
     return (
@@ -23,7 +24,9 @@ const AppRoutes = () => {
         />
         <Route path="/register" element={<Register />} />
         <Route path="/plays" element={<Plays />} />  
+        <Route path="monologues" element={<Monologues/>} />
         <Route path="/plays/:playId" element={<PlayDetails />} />
+        <Route path="/monologues/:monologueId" element={<MonologueDetails/>} />
       </Routes>
     );
   };
